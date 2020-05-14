@@ -46,4 +46,10 @@ public class WhiskyController {
         return new ResponseEntity<List<Whisky>>(whiskyRepository.findByNameContaining("Glen"),HttpStatus.OK);
     }
 
+    @GetMapping(value = "/whiskies/begin_the")
+    public ResponseEntity<List<Whisky>> getWhiskies(){
+        return new ResponseEntity<List<Whisky>>(whiskyRepository.findByNameStartingWith("The"), HttpStatus.OK);
+    }
+
+
 }
