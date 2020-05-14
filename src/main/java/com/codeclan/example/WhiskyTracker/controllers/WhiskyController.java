@@ -37,17 +37,13 @@ public class WhiskyController {
             return new ResponseEntity<List<Whisky>>(whiskyRepository.findByAgeAndDistilleryName(age, distname), HttpStatus.OK);
         }
 
-
-
-
         List<Whisky> foundWhiskies = whiskyRepository.findAll();
         return new ResponseEntity<List<Whisky>>(foundWhiskies, HttpStatus.OK);
     }
 
     @GetMapping(value = "/whiskies/glen")
     public ResponseEntity<List<Whisky>> getAllWhiskies(){
-        String name = "Glen";
-        return new ResponseEntity<List<Whisky>>(whiskyRepository.findByNameContaining(name),HttpStatus.OK);
+        return new ResponseEntity<List<Whisky>>(whiskyRepository.findByNameContaining("Glen"),HttpStatus.OK);
     }
 
 }
